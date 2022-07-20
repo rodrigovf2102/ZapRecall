@@ -1,0 +1,69 @@
+.zap-recall {
+    background-color: #FB6B6B;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.zap-recall img {
+    width: 52px;
+    height: 60px;
+}
+
+.zap-recall>:nth-child(1) {
+    display: flex;
+    margin-bottom: 100px;
+}
+
+.zap-recall>:nth-child(1)>div {
+    font-family: 'Righteous';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 45px;
+    color: white;
+    margin-left: 25px;
+}
+
+.pergunta {
+    width: 300px;
+    height: 65px;
+    font-family: 'Recursive';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 25px;
+}
+
+.pergunta ion-icon {
+    color: black;
+    font-size: 26px;
+}
+
+.zap-recall >:last-child {
+    font-family: 'Recursive';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    height: 70px;
+    background: #FFFFFF;
+    box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
+}

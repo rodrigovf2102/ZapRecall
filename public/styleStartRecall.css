@@ -19,6 +19,7 @@
     font-weight: 400;
     font-size: 36px;
     color: #FFFFFF;
+    cursor:default;
 }
 
 .start-recall :nth-child(3) {
@@ -37,4 +38,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+}
+
+.hidden{
+    display: none;
 }
