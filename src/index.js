@@ -1,10 +1,14 @@
-import ReactDOM from "react";
+import ReactDOM from "react-dom";
 import App from "./App";
 
 function Renderizar(){
     return (
-        <App/>
+        <>
+            <App/>
+        </>
+        
     )
 }
 
-ReactDOM.render(<App/>,document.querySelector('.root'));
+ReactDOM.render(Renderizar(),document.querySelector('.root'));
+
