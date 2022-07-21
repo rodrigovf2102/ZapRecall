@@ -1,20 +1,25 @@
 .zap-recall {
     background-color: #FB6B6B;
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-.zap-recall img {
+.zap-recall>:nth-child(1) img {
     width: 52px;
     height: 60px;
+    margin-left: 0px;
+}
+
+.zap-recall img {
+    margin-left: 250px;
 }
 
 .zap-recall>:nth-child(1) {
     display: flex;
-    margin-bottom: 100px;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .zap-recall>:nth-child(1)>div {
@@ -40,15 +45,46 @@
     border-radius: 5px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     padding-left: 15px;
     padding-right: 15px;
     margin-bottom: 25px;
+
 }
 
-.pergunta ion-icon {
+.visible {
+    margin-top: 22px;
+}
+
+.pergunta-aberta {
+    width: 299px;
+    height: auto;
+    background: #FFFFD5;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    font-family: 'Recursive';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    background: #FFFFD4;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    padding-bottom: 10px;
+}
+
+ion-icon {
     color: black;
     font-size: 26px;
+}
+
+.zap-recall>:nth-last-child(2) {
+    margin-bottom: 90px;
 }
 
 .zap-recall>:last-child {
@@ -62,12 +98,78 @@
     align-items: center;
     position: fixed;
     bottom: 0px;
+    left: 0px;
     width: 100%;
     height: 70px;
     background: #FFFFFF;
     box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
 }
 
-.hidden{
+.answer {
+    width: 100%;
+}
+
+.hidden {
     display: none;
+}
+
+.nao-lembrou {
+    width: 85px;
+    height: 37px;
+    background: #FF3030;
+    border-radius: 5px;
+    font-family: 'Recursive';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #FFFFFF;
+}
+
+.quase-lembrou {
+    width: 85px;
+    height: 37px;
+    background: #FF922E;
+    border-radius: 5px;
+    font-family: 'Recursive';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #FFFFFF;
+}
+
+.lembrou {
+    width: 85px;
+    height: 37px;
+    background: #2FBE34;
+    border-radius: 5px;
+    font-family: 'Recursive';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #FFFFFF;
+}
+
+.alinhar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.errou {
+    text-decoration: line-through;
+    color: #FF3030;
+}
+
+.quase {
+    text-decoration: line-through;
+    color: #FF922E;
+}
+
+.acertou {
+    text-decoration: line-through;
+    color: #2FBE34;
 }
