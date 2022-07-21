@@ -1,6 +1,8 @@
-export default function ZapRecall() {
+import StartRecall from "./StartRecall";
+
+export default function ZapRecall({startRecall}) {
     return (
-        <div className='zap-recall'>
+        <div className={startRecall}>
             <div>
                 <img src="./img/logo-pequeno.png"></img>
                 <div>ZapRecall</div>

@@ -1,9 +1,12 @@
-export default function StartRecall() {
+import React from "react";
+
+export default function StartRecall({startRecall, IniciarRecall}) {
     return (
-        <div className="start-recall hidden">
+        <div className={startRecall}>
             <img src='./img/logo.png'/>
             <div>ZapRecall</div>
-            <div>Iniciar Recall!</div>
+            <div onClick={IniciarRecall}>Iniciar Recall!</div>
         </div>
     );
 }
+
