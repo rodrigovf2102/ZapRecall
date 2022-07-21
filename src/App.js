@@ -1,5 +1,6 @@
 import StartRecall from './StartRecall';
 import ZapRecall from './ZapRecall';
+import React from 'react';
 
 export default function App(){
 
@@ -14,7 +15,7 @@ export default function App(){
     return (
         <>
             <StartRecall startRecall={startRecall} IniciarRecall={IniciarRecall}/>
-            <ZapRecall startRecall={startRecall}/>
+            <ZapRecall zapRecall={zapRecall}/>
         </>
     );
 }
