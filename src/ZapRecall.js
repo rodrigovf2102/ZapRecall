@@ -26,7 +26,7 @@ export default function ZapRecall({ zapRecall }) {
 
     const [ionIconListColor, setIonIconListColor] = React.useState([]);
 
-    const [deck, setDeck] = React.useState([
+    const deckDesembaralhado = [
         {
             question: "O que é JSX?",
             answer: "Uma extensão da linguagem JavaScript",
@@ -67,7 +67,13 @@ export default function ZapRecall({ zapRecall }) {
             answer: "dizer para o React quais informações quando atualizadas devem renderizar a tela novamente",
             virada: false
         }
-    ])
+    ]
+
+    const [deck, setDeck] = React.useState([...deckDesembaralhado.sort(comparador)])
+
+    function comparador() {
+        return Math.random() - 0.5;
+    }
 
     function revelarCarta(index) {
         const condicaoDeExecucao = (ionIconName[index] !== "close-circle" &&
