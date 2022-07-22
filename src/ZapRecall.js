@@ -1,25 +1,30 @@
-
 import React from "react";
+import ZapRecallIonIcons from './ZapRecallIonIcons.js';
 
 export default function ZapRecall({ zapRecall }) {
 
     const [classeDeck, setClasseDeck] = React.useState(
         ["pergunta", "pergunta", "pergunta", "pergunta",
-            "pergunta", "pergunta", "pergunta", "pergunta"])
+            "pergunta", "pergunta", "pergunta", "pergunta"]);
 
     const [classCardVerse, setclassCardVerse] = React.useState(
-        ["visible", "visible", "visible", "visible", "visible", "visible", "visible", "visible",])
+        ["visible", "visible", "visible", "visible", "visible", "visible", "visible", "visible",]);
 
     const [classCardFront, setclassCardFront] = React.useState(
-        ["hidden", "hidden", "hidden", "hidden", "hidden", "hidden", "hidden", "hidden"])
+        ["hidden", "hidden", "hidden", "hidden", "hidden", "hidden", "hidden", "hidden"]);
 
     const [classCardAnswer, setclassCardAnswer] = React.useState(
-        ["hidden", "hidden", "hidden", "hidden", "hidden", "hidden", "hidden", "hidden"])
+        ["hidden", "hidden", "hidden", "hidden", "hidden", "hidden", "hidden", "hidden"]);
 
     const [ionIconName, setIonIconName] = React.useState(
         ["play-outline", "play-outline", "play-outline", "play-outline",
-            "play-outline", "play-outline", "play-outline", "play-outline"]
-    );
+            "play-outline", "play-outline", "play-outline", "play-outline"]);
+
+    const [ionIconList,setIonIconList] = React.useState([]);
+
+    const [contadorIonIcon,setContadorIonIcon] = React.useState([0]);
+
+    const [ionIconListColor, setIonIconListColor] = React.useState([]);
 
     const [deck, setDeck] = React.useState([
         {
@@ -96,7 +101,6 @@ export default function ZapRecall({ zapRecall }) {
         setclassCardAnswer([...classCardAnswer]);
     }
 
-
     function responderCarta(index, resposta) {
 
         classCardAnswer[index] = "hidden";
@@ -106,18 +110,27 @@ export default function ZapRecall({ zapRecall }) {
             setclassCardVerse([...classCardVerse]);
             ionIconName[index] = "close-circle";
             setIonIconName([...ionIconName]);
+            setContadorIonIcon(Number(contadorIonIcon+1));
+            setIonIconList([...ionIconList, ionIconName[index]])
+            setIonIconListColor([...ionIconListColor, "errou"]);
         }
         if (resposta === "quase") {
             classCardVerse[index] = "visible quase";
-            setclassCardVerse([...classCardVerse])
+            setclassCardVerse([...classCardVerse]);
             ionIconName[index] = "help-circle";
-            setIonIconName([...ionIconName])
+            setIonIconName([...ionIconName]);
+            setContadorIonIcon(Number(contadorIonIcon+1));
+            setIonIconList([...ionIconList, ionIconName[index]])
+            setIonIconListColor([...ionIconListColor, "quase"]);
         }
         if (resposta === "acertou") {
             classCardVerse[index] = "visible acertou";
             setclassCardVerse([...classCardVerse]);
             ionIconName[index] = "checkmark-circle";
             setIonIconName([...ionIconName]);
+            setContadorIonIcon(Number(contadorIonIcon+1));
+            setIonIconList([...ionIconList, ionIconName[index]])
+            setIonIconListColor([...ionIconListColor, "acertou"]);
         }
     }
 
@@ -134,7 +147,6 @@ export default function ZapRecall({ zapRecall }) {
                     <div className={"answer " + classCardAnswer[index]}>{carta.answer}</div>
                     <ion-icon class={"md hydrated " + classCardVerse[index]} onClick={
                         () => { revelarCarta(index) }} name={ionIconName[index]}></ion-icon>
-
                     <div className={"nao-lembrou " + classCardAnswer[index]}
                         onClick={() => { responderCarta(index, "errou") }}>Não Lembrei</div>
                     <div className={"quase-lembrou " + classCardAnswer[index]}
@@ -144,9 +156,9 @@ export default function ZapRecall({ zapRecall }) {
                     <img className={classCardFront[index]}
                         onClick={() => { revelarRespostaCarta(index) }} src="./img/setinha.png" />
                 </div>)}
-
             <div>
-                0/{deck.length} CONCLUÍDOS
+                <ZapRecallIonIcons contadorIonIcon={contadorIonIcon} deckLength={deck.length} 
+                                   ionIconList={ionIconList} ionIconListColor={ionIconListColor}/>
             </div>
         </div>
     );
