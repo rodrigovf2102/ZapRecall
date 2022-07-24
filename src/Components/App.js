@@ -1,6 +1,8 @@
-import StartRecall from './StartRecall';
-import ZapRecall from './ZapRecall';
+import StartRecall from '../StartRecall/StartRecall';
+import ZapRecall from '../ZapRecall/ZapRecall';
 import React from 'react';
+import "./style.css";
+
 
 export default function App(){
 

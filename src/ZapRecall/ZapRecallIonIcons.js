@@ -1,4 +1,6 @@
 import React from "react";
+import sad from "../Assets/img/sad.png";
+import party from "../Assets/img/party.png";
 
 export default function ZapRecallIonIcons({ contadorIonIcon, deckLength, ionIconList, ionIconListColor }) {
     let msg = "";
@@ -8,7 +10,7 @@ export default function ZapRecallIonIcons({ contadorIonIcon, deckLength, ionIcon
             msg =
                 <>
                     <div className="titulo-resultado">
-                        <img src="./img/sad.png" />
+                        <img src={sad} />
                         <div>Putz...</div>
                     </div>
                     <div className="msg-resultado">Ainda faltam alguns...Mas não desanime!</div>
@@ -18,7 +20,7 @@ export default function ZapRecallIonIcons({ contadorIonIcon, deckLength, ionIcon
             msg =
                 <>
                     <div className="titulo-resultado">
-                        <img src="./img/party.png" />
+                        <img src={party}/>
                         <div>Parabéns!</div>
                     </div>
                     <div className="msg-resultado">Você não esqueceu de nenhum falshcard!</div>

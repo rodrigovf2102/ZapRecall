@@ -1,5 +1,9 @@
 import React from "react";
 import ZapRecallIonIcons from './ZapRecallIonIcons.js';
+import "./style.css";
+import logoPequeno from "../Assets/img/logo-pequeno.png";
+import setinha from "../Assets/img/setinha.png";
+
 
 export default function ZapRecall({ zapRecall }) {
 
@@ -143,7 +147,7 @@ export default function ZapRecall({ zapRecall }) {
     return (
         <div className={zapRecall}>
             <div>
-                <img src="./img/logo-pequeno.png"></img>
+                <img src={logoPequeno}></img>
                 <div>ZapRecall</div>
             </div>
             {deck.map((carta, index) =>
@@ -160,7 +164,7 @@ export default function ZapRecall({ zapRecall }) {
                     <div className={"lembrou " + classCardAnswer[index]}
                         onClick={() => { responderCarta(index, "acertou") }}>Zap!</div>
                     <img className={classCardFront[index]}
-                        onClick={() => { revelarRespostaCarta(index) }} src="./img/setinha.png" />
+                        onClick={() => { revelarRespostaCarta(index) }} src={setinha}/>
                 </div>)}
             <div>
                 <ZapRecallIonIcons contadorIonIcon={contadorIonIcon} deckLength={deck.length} 
