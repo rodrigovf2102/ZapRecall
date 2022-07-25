@@ -108,7 +108,7 @@ ion-icon {
     box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
 }
 
-.titulo-resultado{
+.titulo-resultado {
     display: flex;
     justify-content: center;
     text-align: center;
@@ -116,12 +116,12 @@ ion-icon {
     margin-bottom: 8px;
 }
 
-.titulo-resultado img{
+.titulo-resultado img {
     margin-left: 0px;
     margin-bottom: 8px;
 }
 
-.msg-resultado{
+.msg-resultado {
     display: flex;
     justify-content: center;
     text-align: center;
@@ -129,7 +129,7 @@ ion-icon {
     margin-bottom: 8px;
 }
 
-.placar{
+.placar {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -204,4 +204,27 @@ ion-icon {
 .acertou {
     text-decoration: line-through;
     color: #2FBE34;
+}
+
+.ion-icons{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.reiniciar-recall {
+    width: 167px;
+    height: 32px;
+    background: #FB6B6B;
+    border-radius: 5px;
+    font-family: 'Recursive';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
 }

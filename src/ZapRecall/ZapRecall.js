@@ -5,7 +5,7 @@ import logoPequeno from "../Assets/img/logo-pequeno.png";
 import setinha from "../Assets/img/setinha.png";
 
 
-export default function ZapRecall({ zapRecall }) {
+export default function ZapRecall({ zapRecall, setZapRecall, setStartRecall }) {
 
     const [ionIconList,setIonIconList] = React.useState([]);
 
@@ -158,6 +158,15 @@ export default function ZapRecall({ zapRecall }) {
         }
     }
 
+    function reiniciarRecall(){
+        setDeck([...deckDesembaralhado.sort(comparador)])
+        setStartRecall("start-recall");
+        setZapRecall("zap-recall hidden");
+        setIonIconList([]);
+        setContadorIonIcon([0]);
+        setIonIconListColor([]);
+    }
+
     return (
         <div className={zapRecall}>
             <div>
@@ -182,7 +191,8 @@ export default function ZapRecall({ zapRecall }) {
                 </div>)}
             <div>
                 <ZapRecallIonIcons contadorIonIcon={contadorIonIcon} deckLength={deck.length} 
-                                   ionIconList={ionIconList} ionIconListColor={ionIconListColor}/>
+                                   ionIconList={ionIconList} ionIconListColor={ionIconListColor}
+                                   reiniciarRecall={reiniciarRecall}/>
             </div>
         </div>
     );

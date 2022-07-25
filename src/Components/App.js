@@ -17,7 +17,7 @@ export default function App(){
     return (
         <>
             <StartRecall startRecall={startRecall} IniciarRecall={IniciarRecall}/>
-            <ZapRecall zapRecall={zapRecall}/>
+            <ZapRecall zapRecall={zapRecall} setStartRecall={setStartRecall} setZapRecall={setZapRecall}/>
         </>
     );
 }
