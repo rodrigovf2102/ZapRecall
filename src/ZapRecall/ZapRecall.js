@@ -7,23 +7,6 @@ import setinha from "../Assets/img/setinha.png";
 
 export default function ZapRecall({ zapRecall }) {
 
-    const [classeDeck, setClasseDeck] = React.useState(
-        ["pergunta", "pergunta", "pergunta", "pergunta",
-            "pergunta", "pergunta", "pergunta", "pergunta"]);
-
-    const [classCardVerse, setclassCardVerse] = React.useState(
-        ["visible", "visible", "visible", "visible", "visible", "visible", "visible", "visible",]);
-
-    const [classCardFront, setclassCardFront] = React.useState(
-        ["hidden", "hidden", "hidden", "hidden", "hidden", "hidden", "hidden", "hidden"]);
-
-    const [classCardAnswer, setclassCardAnswer] = React.useState(
-        ["hidden", "hidden", "hidden", "hidden", "hidden", "hidden", "hidden", "hidden"]);
-
-    const [ionIconName, setIonIconName] = React.useState(
-        ["play-outline", "play-outline", "play-outline", "play-outline",
-            "play-outline", "play-outline", "play-outline", "play-outline"]);
-
     const [ionIconList,setIonIconList] = React.useState([]);
 
     const [contadorIonIcon,setContadorIonIcon] = React.useState([0]);
@@ -34,42 +17,82 @@ export default function ZapRecall({ zapRecall }) {
         {
             question: "O que é JSX?",
             answer: "Uma extensão da linguagem JavaScript",
-            virada: false
+            virada: false,
+            classeDeck: "pergunta",
+            classCardVerse: "visible",
+            classCardFront: "hidden",
+            classCardAnswer: "hidden",
+            ionIconName : "play-outline"
         },
         {
             question: " O React é__",
             answer: "uma biblioteca JavaScript para construção de interfaces",
-            virada: false
+            virada: false,
+            classeDeck: "pergunta",
+            classCardVerse: "visible",
+            classCardFront: "hidden",
+            classCardAnswer: "hidden",
+            ionIconName : "play-outline"
         },
         {
             question: "Componentes devem iniciar com __",
             answer: "letra maiúscula",
-            virada: false
+            virada: false,
+            classeDeck: "pergunta",
+            classCardVerse: "visible",
+            classCardFront: "hidden",
+            classCardAnswer: "hidden",
+            ionIconName : "play-outline"
         },
         {
             question: "Podemos colocar __ dentro do JSX",
             answer: "expressões",
-            virada: false
+            virada: false,
+            classeDeck: "pergunta",
+            classCardVerse: "visible",
+            classCardFront: "hidden",
+            classCardAnswer: "hidden",
+            ionIconName : "play-outline"
         },
         {
             question: "O ReactDOM nos ajuda __",
             answer: "interagindo com a DOM para colocar componentes React na mesma",
-            virada: false
+            virada: false,
+            classeDeck: "pergunta",
+            classCardVerse: "visible",
+            classCardFront: "hidden",
+            classCardAnswer: "hidden",
+            ionIconName : "play-outline"
         },
         {
             question: "Usamos o npm para __ ",
             answer: "gerenciar os pacotes necessários e suas dependências",
-            virada: false
+            virada: false,
+            classeDeck: "pergunta",
+            classCardVerse: "visible",
+            classCardFront: "hidden",
+            classCardAnswer: "hidden",
+            ionIconName : "play-outline"
         },
         {
             question: "Usamos props para __",
             answer: "passar diferentes informações para componentes ",
-            virada: false
+            virada: false,
+            classeDeck: "pergunta",
+            classCardVerse: "visible",
+            classCardFront: "hidden",
+            classCardAnswer: "hidden",
+            ionIconName : "play-outline"
         },
         {
             question: "Usamos estado (state) para __",
             answer: "dizer para o React quais informações quando atualizadas devem renderizar a tela novamente",
-            virada: false
+            virada: false,
+            classeDeck: "pergunta",
+            classCardVerse: "visible",
+            classCardFront: "hidden",
+            classCardAnswer: "hidden",
+            ionIconName : "play-outline"
         }
     ]
 
@@ -80,66 +103,57 @@ export default function ZapRecall({ zapRecall }) {
     }
 
     function revelarCarta(index) {
-        const condicaoDeExecucao = (ionIconName[index] !== "close-circle" &&
-        ionIconName[index] !== "help-circle" && ionIconName[index] !== "checkmark-circle");
+        const condicaoDeExecucao = (deck[index].ionIconName !== "close-circle" &&
+        deck[index].ionIconName !== "help-circle" && deck[index].ionIconName !== "checkmark-circle");
         if (condicaoDeExecucao) {
             deck[index].virada = !deck[index].virada;
             setDeck([...deck]);
             if (deck[index].virada === true) {
-                classeDeck[index] = "pergunta-aberta";
-                setClasseDeck([...classeDeck]);
-                classCardVerse[index] = "hidden";
-                setclassCardVerse([...classCardVerse]);
-                classCardFront[index] = "visible";
-                setclassCardFront([...classCardFront]);
+                deck[index].classeDeck = "pergunta-aberta";
+                deck[index].classCardVerse = "hidden"
+                deck[index].classCardFront = "visible"
+                setDeck([...deck]);
             }
             if (deck[index].virada === false) {
-                classeDeck[index] = "pergunta";
-                setClasseDeck([...classeDeck]);
-                classCardVerse[index] = "visible";
-                setclassCardVerse([...classCardVerse]);
-                classCardFront[index] = "hidden";
-                setclassCardFront([...classCardFront]);
+                deck[index].classeDeck = "pergunta";
+                deck[index].classCardVerse = "visible";
+                deck[index].classCardFront = "hidden";
+                setDeck([...deck]);
             }
         }
     }
 
     function revelarRespostaCarta(index) {
-        classCardFront[index] = "hidden";
-        setclassCardFront([...classCardFront]);
-        classCardAnswer[index] = "visible alinhar";
-        setclassCardAnswer([...classCardAnswer]);
+        deck[index].classCardFront = "hidden";
+        deck[index].classCardAnswer = "visible alinhar";
+        setDeck([...deck]);
     }
 
     function responderCarta(index, resposta) {
 
-        classCardAnswer[index] = "hidden";
-        setclassCardAnswer([...classCardAnswer]);
+        deck[index].classCardAnswer = "hidden";
         if (resposta === "errou") {
-            classCardVerse[index] = "visible errou";
-            setclassCardVerse([...classCardVerse]);
-            ionIconName[index] = "close-circle";
-            setIonIconName([...ionIconName]);
+            deck[index].classCardVerse = "visible errou";
+            deck[index].ionIconName = "close-circle";
+            setDeck([...deck]);
             setContadorIonIcon(Number(contadorIonIcon+1));
-            setIonIconList([...ionIconList, ionIconName[index]])
+            setIonIconList([...ionIconList, deck[index].ionIconName])
             setIonIconListColor([...ionIconListColor, "errou"]);
         }
         if (resposta === "quase") {
-            classCardVerse[index] = "visible quase";
-            setclassCardVerse([...classCardVerse]);
-            ionIconName[index] = "help-circle";
-            setIonIconName([...ionIconName]);
+            deck[index].classCardVerse = "visible quase";
+            deck[index].ionIconName = "help-circle";
+            setDeck([...deck]);
             setContadorIonIcon(Number(contadorIonIcon+1));
-            setIonIconList([...ionIconList, ionIconName[index]])
+            setIonIconList([...ionIconList, deck[index].ionIconName])
             setIonIconListColor([...ionIconListColor, "quase"]);
         }
         if (resposta === "acertou") {
-            classCardVerse[index] = "visible acertou";
-            setclassCardVerse([...classCardVerse]);
-            ionIconName[index] = "checkmark-circle";
-            setIonIconName([...ionIconName]);
+            deck[index].classCardVerse = "visible acertou";
+            deck[index].ionIconName = "checkmark-circle";
+            setDeck([...deck]);
             setContadorIonIcon(Number(contadorIonIcon+1));
-            setIonIconList([...ionIconList, ionIconName[index]])
+            setIonIconList([...ionIconList,deck[index].ionIconName])
             setIonIconListColor([...ionIconListColor, "acertou"]);
         }
     }
@@ -151,19 +165,19 @@ export default function ZapRecall({ zapRecall }) {
                 <div>ZapRecall</div>
             </div>
             {deck.map((carta, index) =>
-                <div className={classeDeck[index]}>
-                    <div className={classCardVerse[index]}>Pergunta {index + 1}</div>
-                    <div className={"answer " + classCardFront[index]}>{carta.question}</div>
-                    <div className={"answer " + classCardAnswer[index]}>{carta.answer}</div>
-                    <ion-icon class={"md hydrated " + classCardVerse[index]} onClick={
-                        () => { revelarCarta(index) }} name={ionIconName[index]}></ion-icon>
-                    <div className={"nao-lembrou " + classCardAnswer[index]}
+                <div className={deck[index].classeDeck}>
+                    <div className={deck[index].classCardVerse}>Pergunta {index + 1}</div>
+                    <div className={"answer " + deck[index].classCardFront}>{carta.question}</div>
+                    <div className={"answer " + deck[index].classCardAnswer}>{carta.answer}</div>
+                    <ion-icon class={"md hydrated " + deck[index].classCardVerse} onClick={
+                        () => { revelarCarta(index) }} name={deck[index].ionIconName}></ion-icon>
+                    <div className={"nao-lembrou " + deck[index].classCardAnswer}
                         onClick={() => { responderCarta(index, "errou") }}>Não Lembrei</div>
-                    <div className={"quase-lembrou " + classCardAnswer[index]}
+                    <div className={"quase-lembrou " + deck[index].classCardAnswer}
                         onClick={() => { responderCarta(index, "quase") }}>Quase não lembrei</div>
-                    <div className={"lembrou " + classCardAnswer[index]}
+                    <div className={"lembrou " + deck[index].classCardAnswer}
                         onClick={() => { responderCarta(index, "acertou") }}>Zap!</div>
-                    <img className={classCardFront[index]}
+                    <img className={deck[index].classCardFront}
                         onClick={() => { revelarRespostaCarta(index) }} src={setinha}/>
                 </div>)}
             <div>
